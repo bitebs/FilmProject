@@ -1,0 +1,70 @@
+fetch('http://localhost:8080/film')
+.then(res => res.json())
+.then(console.log)
+
+fetch('http://localhost:8080/film/1')
+    .then(res => res.json())
+    .then(console.log)
+
+fetch('http://localhost:8080/film',
+{
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "POST",
+    body: JSON.stringify({film_id: 1, name: 'The Lord of the rings', genre: 'fantasy', country_id: 1})
+})
+.then(function(res){ console.log(res) })
+
+fetch('http://localhost:8080/film/1',
+{
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "PUT",
+    body: JSON.stringify({film_id: 1, name: 'The Bords of the ring', genre: 'fantastic', country_id: 1})
+})
+.then(function(res){ console.log(res) })
+
+fetch('http://localhost:8080/film/1',
+{
+    method: "DELETE"
+})
+
+
+fetch('http://localhost:8080/country')
+.then(res => res.json())
+.then(console.log)
+
+fetch('http://localhost:8080/country/1')
+    .then(res => res.json())
+    .then(console.log)
+
+    fetch('http://localhost:8080/country',
+    {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({country_id: 6, country_name: 'USA'})
+    })
+    .then(function(res){ console.log(res) })
+
+    fetch('http://localhost:8080/country/6',
+    {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "PUT",
+        body: JSON.stringify({country_id: 6, country_name: 'Belarus'})
+    })
+    .then(function(res){ console.log(res) })
+
+    fetch('http://localhost:8080/country/6',
+    {
+        method: "DELETE"
+    })
